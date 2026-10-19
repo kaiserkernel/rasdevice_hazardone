@@ -1,0 +1,30 @@
+# Optional alternative to the .desktop autostart entry: a systemd unit that
+# supervises hazard-1 and restarts it if it crashes. Because hazard-1 is a
+# Qt Widgets GUI app (not headless), it still needs an X/Wayland session to
+# attach to -- this unit assumes the Pi auto-logs-in to the desktop as user
+# "pi" with DISPLAY=:0, which is the Raspberry Pi OS default when
+# "Desktop Autologin" is enabled in raspi-config.
+#
+# Install with:
+#   sudo cp hazard-1.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now hazard-1.service
+#
+# Adjust User=, ExecStart=, and WorkingDirectory= to match your install path.
+
+[Unit]
+Description=hazard-1 smoke/fire detection
+After=graphical.target
+
+[Service]
+Type=simple
+User=pi
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+WorkingDirectory=/home/pi/hazard-1/build
+ExecStart=/home/pi/hazard-1/build/hazard-1 --camera 0
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target

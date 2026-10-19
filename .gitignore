@@ -1,0 +1,31 @@
+# Build output (regenerate with CMake; see README.md)
+/build/
+*.obj
+*.ilk
+*.pdb
+
+# Training virtual environment and raw run artifacts (large; the
+# human-readable summary lives in training/TRAINING_REPORT.md instead)
+/training/venv/
+/training/runs/
+/training/yolov8n.pt
+/training/probe_start.txt
+/training/probe_end.txt
+/training/probe_log.txt
+/training/train_start.txt
+/training/train_end.txt
+
+# Runtime-generated logs
+/logs/
+*.log
+
+# Large third-party installers staged for the Toolsets folder -- see
+# Toolsets/README.md for download links instead of vendoring multi-hundred-MB
+# binaries into git history.
+/Toolsets/**/*.exe
+/Toolsets/**/*.msi
+/Toolsets/**/*.zip
+
+# OS cruft
+Thumbs.db
+.DS_Store

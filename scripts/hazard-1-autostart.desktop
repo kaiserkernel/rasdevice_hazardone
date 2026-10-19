@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=hazard-1
+Comment=Smoke/fire detection monitor
+Exec=/home/pi/hazard-1/build/hazard-1 --camera 0
+Path=/home/pi/hazard-1/build
+Terminal=false
+X-GNOME-Autostart-enabled=true
+
+; Install on Raspberry Pi OS Desktop with:
+;   mkdir -p ~/.config/autostart
+;   cp hazard-1-autostart.desktop ~/.config/autostart/
+; The app will then launch automatically after login/boot into the desktop
+; and immediately start monitoring camera index 0. Adjust the Exec= path
+; and --camera index to match your install location and device.

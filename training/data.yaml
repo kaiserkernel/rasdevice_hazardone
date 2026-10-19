@@ -1,0 +1,15 @@
+# YOLO dataset config for hazard-1 fire/smoke detection
+# Source: Home-fire-dataset (PengBo0), https://github.com/PengBo0/Home-fire-dataset
+# License: CC BY-NC 4.0 (non-commercial, attribution required)
+# Class index order verified by visual inspection of YOLO label boxes drawn on
+# sample images from the dataset (see TRAINING_REPORT.md for details):
+#   0 -> fire  (flames)
+#   1 -> smoke
+train: D:/Home-fire-dataset/dataset/train/images
+val: D:/Home-fire-dataset/dataset/val/images
+test: D:/Home-fire-dataset/dataset/test/images
+
+nc: 2
+names:
+  0: fire
+  1: smoke
